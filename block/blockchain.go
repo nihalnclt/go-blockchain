@@ -1,4 +1,4 @@
-package main
+package block
 
 import (
 	"crypto/sha256"
@@ -155,21 +155,4 @@ func (t *Transaction) Print() {
 	fmt.Printf("sender addr     %s\n", t.SenderAddr)
 	fmt.Printf("recipient addr  %s\n", t.RecipientAddr)
 	fmt.Printf("value           %1f\n", t.Value)
-}
-
-func init() {
-	log.SetPrefix("Blockchain: ")
-}
-
-func main() {
-	blockchain := NewBlockchain("MY BLOCKCHAIN ADDR")
-	//blockchain.Print()
-
-	blockchain.AddTransaction("A", "B", 1.0)
-	blockchain.Mining()
-	//blockchain.Print()
-
-	blockchain.Print()
-	fmt.Printf("A %.1f\n", blockchain.CalculateTotalAmount("A"))
-	fmt.Printf("B %.1f\n", blockchain.CalculateTotalAmount("B"))
 }
